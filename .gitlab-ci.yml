@@ -1,0 +1,39 @@
+cache:
+  paths:
+    - node_modules/
+
+build:
+  stage: build
+  image: node:latest
+  script:
+    - npm i zip-dist
+    - npm install
+    - export NODE_OPTIONS=--openssl-legacy-provider
+    - npm run build
+    - npm run zip
+  artifacts:
+    paths:
+      - "*.zip"
+
+create:release:
+  stage: deploy
+  image: registry.gitlab.com/gitlab-org/release-cli:latest
+  needs:
+    - job: build
+      artifacts: true
+  variables:
+    TAG: '$CI_COMMIT_SHA'
+  script:
+    - echo "Create Release $TAG"
+    - echo $JOB_ID  
+  release:
+    name: 'Release $TAG'
+    tag_name: '$TAG'
+    ref: '$TAG'
+    description: 'Release $TAG'
+    assets:
+      links:
+        - name: azure-devops-helper.zip"
+          url: "https://gitlab.com/Classik/azp_helper/-/jobs/$JOB_ID/artifacts/download"
+
+
