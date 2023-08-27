@@ -1,4 +1,4 @@
-# Hасширения для работы с Azure Devops Pipeline
+# Расширения для работы с Azure Devops Pipeline
 
 ## Возможности 
 
