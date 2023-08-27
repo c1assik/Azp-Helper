@@ -25,7 +25,7 @@ create:release:
     TAG: '$CI_COMMIT_SHA'
   script:
     - echo "Create Release $TAG"
-    - echo $JOB_ID  
+    - echo $CI_JOB_ID  
   release:
     name: 'Release $TAG'
     tag_name: '$TAG'
@@ -34,6 +34,6 @@ create:release:
     assets:
       links:
         - name: azure-devops-helper.zip"
-          url: "https://gitlab.com/Classik/azp_helper/-/jobs/$JOB_ID/artifacts/download"
+          url: "https://gitlab.com/Classik/azp_helper/-/jobs/$CI_JOB_ID/artifacts/download"
 
 
