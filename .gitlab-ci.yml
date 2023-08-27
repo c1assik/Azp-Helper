@@ -33,7 +33,7 @@ create:release:
     description: 'Release $TAG'
     assets:
       links:
-        - name: azure-devops-helper.zip"
-          url: "https://gitlab.com/Classik/azp_helper/-/jobs/$CI_JOB_ID/artifacts/download"
+        - name: azure-devops-helper.zip
+          url: "$CI_JOB_URL/artifacts/download"
 
 
