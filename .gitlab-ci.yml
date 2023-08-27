@@ -26,6 +26,9 @@ create:release:
   script:
     - echo "Create Release $TAG"
     - echo $CI_JOB_ID  
+  artifacts:
+    paths:
+      - "*.zip"
   release:
     name: 'Release $TAG'
     tag_name: '$TAG'
