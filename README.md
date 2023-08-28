@@ -1,5 +1,9 @@
 # Расширения для работы с Azure Devops Pipeline
 
+## Скачать
+
+[Releases](https://gitlab.com/Classik/azp_helper/-/releases)
+
 ## Возможности 
 
 Скопировать Пайплайн с сохранением всех настроек.
